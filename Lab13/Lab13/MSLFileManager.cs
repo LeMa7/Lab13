@@ -26,7 +26,7 @@ namespace Lab13
 
         public static void Manager2()
         {
-            int i = 0;
+            
             DirectoryInfo di = new DirectoryInfo(@"D:\MLSFiles");
             di.Create();
             DirectoryInfo di2 = new DirectoryInfo(@"D:\\");
@@ -34,8 +34,8 @@ namespace Lab13
             {
                 if (fi.Extension == ".txt")
                 {
-                    i++;
-                    fi.CopyTo($@"D:\MLSFiles\{i}.txt");
+                    
+                    fi.CopyTo($@"D:\MLSFiles\{fi.Name}");
                 }
             }
             di.MoveTo(@"D:\MLSInspect\MLSFiles");
