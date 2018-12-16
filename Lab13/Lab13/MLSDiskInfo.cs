@@ -23,7 +23,9 @@ namespace Lab13
                     Console.WriteLine();
                 }
             }
-
+            using(StreamWriter sw = new StreamWriter("mlslogfile.txt",true)){
+                MLSLog.Log(typeof(MLSDiskInfo), "GetDriveInfo",sw);
+            }
         }
     }
 }

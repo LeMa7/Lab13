@@ -22,6 +22,10 @@ namespace Lab13
             FileInfo fi = new FileInfo(@"D:\MLSInspect\mlsdirinfo.txt");
             fi.CopyTo(@"D:\Labs\mlsdirinfo2.txt");
             fi.Delete();
+            using (StreamWriter sw1 = new StreamWriter("mlslogfile.txt", true))
+            {
+                MLSLog.Log(typeof(MSLFileManager), "Manager1", sw1);
+            }
         }
 
         public static void Manager2()
@@ -41,7 +45,10 @@ namespace Lab13
             di.MoveTo(@"D:\MLSInspect\MLSFiles");
             ZipFile.CreateFromDirectory(@"D:\MLSInspect\MLSFiles", @"D:\\Lab13.zip");
             ZipFile.ExtractToDirectory(@"D:\\Lab13.zip", @"D:\DirectoryForZip");
-
+            using (StreamWriter sw = new StreamWriter("mlslogfile.txt", true))
+            {
+                MLSLog.Log(typeof(MSLFileManager), "Manager2", sw);
+            }
         }
     }
 }

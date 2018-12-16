@@ -16,6 +16,10 @@ namespace Lab13
             Console.WriteLine("Количество подпапок : " + new DirectoryInfo(path).GetDirectories().Length);
             Console.WriteLine("Родительская папка : " + new DirectoryInfo(path).Parent);
             Console.WriteLine();
+            using (StreamWriter sw = new StreamWriter("mlslogfile.txt", true))
+            {
+                MLSLog.Log(typeof(MLSDirInfo), "GetDirInfo", sw);
+            }
         }
     }
 }

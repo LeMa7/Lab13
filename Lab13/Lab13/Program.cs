@@ -11,9 +11,7 @@ namespace Lab13
     {
         static void Main(string[] args)
         {
-            StreamWriter sw = new StreamWriter("mlslogfile.txt");
-            MLSLog.Log(typeof(Program), "log1",sw);
-            MLSLog.Log(typeof(Program), "log2",sw);
+            StreamWriter sw = new StreamWriter("mlslogfile.txt", true);
             sw.Close();
             MLSLog.Read("mlslogfile.txt");
             MLSLog.Search("mlslogfile.txt", "log1");
@@ -22,6 +20,8 @@ namespace Lab13
             MLSDirInfo.GetDirInfo(@"D:\Labs\OOP");
             MSLFileManager.Manager1("D:\\");
             MSLFileManager.Manager2();
+            MLSLog.Search("mlslogfile.txt", "14.12.2018");
+            MLSLog.NumberOfLines();
         }
     }
 }

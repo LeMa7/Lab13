@@ -9,7 +9,7 @@ namespace Lab13
 {
     class MLSLog
     {
-        public static void Log(Type t,string info,StreamWriter sw)
+        public static void Log(Type t, string info, StreamWriter sw)
         {
             sw.WriteLine(DateTime.Now + " - " + t.FullName + " - " + info);
         }
@@ -18,13 +18,13 @@ namespace Lab13
         {
             string text = File.ReadAllText(path);
             Console.WriteLine(text);
-            
+
         }
 
-        public static void Search(string path,string info)
+        public static void Search(string path, string info)
         {
-            
-            foreach(string line in File.ReadLines(path))
+
+            foreach (string line in File.ReadLines(path))
             {
                 if (line.Contains(info))
                 {
@@ -32,5 +32,22 @@ namespace Lab13
                 }
             }
         }
+
+        public static void NumberOfLines()
+        {
+            using (StreamReader sr = new StreamReader("mlslogfile.txt",true))
+            {
+                String line;
+                int i = 0;
+                while ((line = sr.ReadLine()) != null)
+                {
+                    i++;
+                }
+                Console.WriteLine("Количество записей:" + i.ToString());
+            }
+        }
+
+        
     }
 }
+

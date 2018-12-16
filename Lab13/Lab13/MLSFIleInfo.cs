@@ -16,6 +16,10 @@ namespace Lab13
             Console.WriteLine("Полный путь : " + Path.GetFullPath(path));
             Console.WriteLine("Время создания : " + File.GetCreationTime(path));
             Console.WriteLine();
+            using (StreamWriter sw = new StreamWriter("mlslogfile.txt", true))
+            {
+                MLSLog.Log(typeof(MLSFIleInfo), "GetFileInfo", sw);
+            }
         }
     }
 }
